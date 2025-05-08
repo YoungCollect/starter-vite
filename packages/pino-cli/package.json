@@ -1,0 +1,55 @@
+{
+  "name": "@oneyoung/pino-cli",
+  "description": "Pino CLI For Projects",
+  "version": "1.0.0",
+  "license": "MIT",
+  "bin": {
+    "pino": "bin/pino.cjs"
+  },
+  "type": "module",
+  "main": "./dist/pino-cli.cjs",
+  "module": "./dist/pino-cli.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pino-cli.js",
+      "require": "./dist/pino-cli.cjs"
+    },
+    "./constants/commit": {
+      "import": "./dist/constants/commit.js",
+      "require": "./dist/constants/commit.cjs"
+    },
+    "./constants/eslint": {
+      "import": "./dist/constants/eslint.js",
+      "require": "./dist/constants/eslint.cjs"
+    }
+  },
+  "scripts": {
+    "test:module": "node bin/pino.cjs module postinstall pinocli --dir ../.p --template test/template/pinoclirc.mjs",
+    "test:format": "node bin/pino.cjs format",
+    "build": "NODE_ENV=production vite build",
+    "preview": "vite build"
+  },
+  "files": [
+    "bin/**/*",
+    "dist/**/*",
+    "docs/**/*",
+    "scripts/**/*",
+    "src/**/*",
+    "package.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@oneyoung/pino-shared": "workspace:^1.0.0",
+    "commander": "^11.0.0",
+    "conventional-changelog": "^5.1.0",
+    "deepmerge": "^4.3.1",
+    "module-alias": "^2.2.3",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2",
+    "publint": "^0.3.2",
+    "semver": "^7.6.3"
+  }
+}

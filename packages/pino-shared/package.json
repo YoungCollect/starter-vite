@@ -1,0 +1,39 @@
+{
+  "name": "@oneyoung/pino-shared",
+  "description": "Pino Shared Scripts For Projects",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/pino-shared.cjs",
+  "module": "./dist/pino-shared.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pino-shared.js",
+      "require": "./dist/pino-shared.cjs"
+    }
+  },
+  "scripts": {
+    "test:module": "node bin/pino.cjs module postinstall pinocli --dir ../.p --template test/template/pinoclirc.mjs",
+    "test:format": "node bin/pino.cjs format",
+    "build": "vite build",
+    "preview": "vite build"
+  },
+  "files": [
+    "dist/**/*",
+    "docs/**/*",
+    "package.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cosmiconfig": "^8.2.0",
+    "execa": "^5.1.1",
+    "mri": "^1.2.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "module-alias": "^2.2.3"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@pino-cli/*": ["packages/pino-cli/*"],
+      "~pino-cli/*": ["packages/pino-cli/src/*"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# If use the editor vscode, you need to install 'EditorConfig for VS Code' in the extensions store.
+# See more at https://editorconfig.org & https://spec.editorconfig.org/#supported-pairs
+root = true
+
+[*]
+charset = utf-8
+
+# Prettier builts in
+insert_final_newline = true
+
+# Prettier won’t trim trailing whitespace inside template strings, but editor might.
+trim_trailing_whitespace = true
+
+# Configurable Prettier behaviors
+indent_style = tab
+indent_size = 2
+max_line_length = 80
+end_of_line = lf
+
+# Other specific file type configurations are primarily handled by Prettier.

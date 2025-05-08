@@ -1,0 +1,10 @@
+# https://prettier.io/docs/en/ignore#ignoring-files-prettierignore
+
+**/*.min.js
+**/*.min.css
+**/*.md
+
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
