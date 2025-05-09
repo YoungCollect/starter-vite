@@ -1,7 +1,8 @@
 const { pinoSharedCmd } = require('@oneyoung/pino-shared')
 
 function sliceExternalPublishArgv() {
-  const whiteList = ['opt']
+  // pino publish --otp=<code>
+  const whiteList = ['otp']
   const reg = /^--(?<key>[^=]+)=(?<value>.+)$/
   const argv = process.argv.slice(2).reduce((acc, cur) => {
     const match = cur.match(reg)
