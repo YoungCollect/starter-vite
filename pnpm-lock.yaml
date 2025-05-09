@@ -34,11 +34,8 @@ importers:
         specifier: ^19.2.2
         version: 19.8.1
       '@oneyoung/pino-cli':
-        specifier: workspace:1.0.0
-        version: link:packages/pino-cli
-      '@oneyoung/pino-shared':
-        specifier: workspace:^1.0.0
-        version: link:packages/pino-shared
+        specifier: ^1.0.0
+        version: 1.0.0(typescript@5.8.3)
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
         version: 5.2.3(vite@6.3.5(@types/node@22.15.16)(jiti@2.4.2))(vue@3.5.13(typescript@5.8.3))
@@ -76,11 +73,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
 
-  packages/pino-cli:
+  packages/foo:
     dependencies:
-      '@oneyoung/pino-shared':
-        specifier: workspace:^1.0.0
-        version: link:../pino-shared
       commander:
         specifier: ^11.0.0
         version: 11.1.0
@@ -105,25 +99,6 @@ importers:
       semver:
         specifier: ^7.6.3
         version: 7.7.1
-
-  packages/pino-shared:
-    dependencies:
-      cosmiconfig:
-        specifier: ^8.2.0
-        version: 8.3.6(typescript@5.8.3)
-      execa:
-        specifier: ^5.1.1
-        version: 5.1.1
-      mri:
-        specifier: ^1.2.0
-        version: 1.2.0
-      picocolors:
-        specifier: ^1.1.1
-        version: 1.1.1
-    devDependencies:
-      module-alias:
-        specifier: ^2.2.3
-        version: 2.2.3
 
 packages:
 
@@ -905,6 +880,15 @@ packages:
 
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
+
+  '@oneyoung/pino-cli@1.0.0':
+    resolution: {integrity: sha512-LUYKlx/a1Ln4kdWMLHrBr6nxCjCOYxSGyqvGied2JbdCjxEVNUUDB8LJ52hSJ9WAg20JDN+vyrRXpMKh7nAKDQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  '@oneyoung/pino-shared@1.0.0':
+    resolution: {integrity: sha512-EvtBep0FmzTCOLDX0t6I34a0Fyso4bEcI6xT7njaRxQzq5SDq9XLDbzcvK1KGDPqM5hwXbGf2xOzcWEhW03i6Q==}
+    engines: {node: '>=18'}
 
   '@pkgr/core@0.2.4':
     resolution: {integrity: sha512-ROFF39F6ZrnzSUEmQQZUar0Jt4xVoP9WnDRdWwF4NNcXs3xBTLgBUDoOwW141y1jP+S8nahIbdxbFC7IShw9Iw==}
@@ -3470,6 +3454,29 @@ snapshots:
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
     dependencies:
       eslint-scope: 5.1.1
+
+  '@oneyoung/pino-cli@1.0.0(typescript@5.8.3)':
+    dependencies:
+      '@oneyoung/pino-shared': 1.0.0(typescript@5.8.3)
+      commander: 11.1.0
+      conventional-changelog: 5.1.0
+      deepmerge: 4.3.1
+      module-alias: 2.2.3
+      ora: 5.4.1
+      prompts: 2.4.2
+      publint: 0.3.12
+      semver: 7.7.1
+    transitivePeerDependencies:
+      - typescript
+
+  '@oneyoung/pino-shared@1.0.0(typescript@5.8.3)':
+    dependencies:
+      cosmiconfig: 8.3.6(typescript@5.8.3)
+      execa: 5.1.1
+      mri: 1.2.0
+      picocolors: 1.1.1
+    transitivePeerDependencies:
+      - typescript
 
   '@pkgr/core@0.2.4': {}
 

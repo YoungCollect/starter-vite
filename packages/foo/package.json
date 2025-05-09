@@ -1,0 +1,52 @@
+{
+  "name": "foo",
+  "description": "A demo package named foo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "bin": {
+    "foo": "bin/index.cjs"
+  },
+  "type": "module",
+  "main": "./dist/foo.cjs",
+  "module": "./dist/foo.js",
+  "exports": {
+    ".": {
+      "import": "./dist/foo.js",
+      "require": "./dist/foo.cjs"
+    },
+    "./constants/commit": {
+      "import": "./dist/constants/commit.js",
+      "require": "./dist/constants/commit.cjs"
+    },
+    "./constants/eslint": {
+      "import": "./dist/constants/eslint.js",
+      "require": "./dist/constants/eslint.cjs"
+    }
+  },
+  "scripts": {
+    "build": "NODE_ENV=production vite build",
+    "preview": "vite build"
+  },
+  "files": [
+    "bin/**/*",
+    "dist/**/*",
+    "docs/**/*",
+    "scripts/**/*",
+    "src/**/*",
+    "package.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "conventional-changelog": "^5.1.0",
+    "deepmerge": "^4.3.1",
+    "module-alias": "^2.2.3",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2",
+    "publint": "^0.3.2",
+    "semver": "^7.6.3"
+  }
+}

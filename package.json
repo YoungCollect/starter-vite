@@ -1,20 +1,18 @@
 {
-  "name": "pino-cli",
+  "name": "vite-monorepo",
   "private": true,
   "version": "0.0.0",
-  "description": "A tool for formatting, releasing, publishing, and more for your project.",
+  "description": "A monorepo starter based on vite",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:lib": "node scripts/build-lib.js",
     "preview": "vite preview",
-    "format:setup": "pino format setup",
-    "test:lint-staged": "npx lint-staged --debug",
     "format": "npm run format:lint && npm run format:pretty",
     "format:lint": "eslint . --ext .js,.jsx,.vue,.cjs,.mjs --fix --config .eslintrc.cjs --no-eslintrc",
     "format:pretty": "prettier . --write",
-		"postpublish": "pnpm build:lib"
+    "postpublish": "pnpm build:lib"
   },
   "dependencies": {
     "vue": "^3.5.13"
@@ -27,8 +25,7 @@
     "@babel/runtime-corejs3": "^7.22.15",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@oneyoung/pino-cli": "workspace:1.0.0",
-    "@oneyoung/pino-shared": "workspace:^1.0.0",
+    "@oneyoung/pino-cli": "^1.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "commitlint-config-gitmoji": "^2.3.1",
     "eslint": "^7.32.0",
