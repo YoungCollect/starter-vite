@@ -36,6 +36,9 @@ importers:
       '@oneyoung/pino-cli':
         specifier: workspace:1.0.0
         version: link:packages/pino-cli
+      '@oneyoung/pino-shared':
+        specifier: workspace:^1.0.0
+        version: link:packages/pino-shared
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
         version: 5.2.3(vite@6.3.5(@types/node@22.15.16)(jiti@2.4.2))(vue@3.5.13(typescript@5.8.3))
