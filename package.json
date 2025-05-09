@@ -1,5 +1,5 @@
 {
-  "name": "starter-vite-cli",
+  "name": "starter-vite",
   "private": true,
   "version": "0.0.0",
   "description": "A monorepo starter based on vite",
