@@ -1,7 +1,31 @@
 const { pinoSharedCmd } = require('@oneyoung/pino-shared')
 
+function sliceExternalPublishArgv() {
+  const whiteList = ['opt']
+  const reg = /^--(?<key>[^=]+)=(?<value>.+)$/
+  const argv = process.argv.slice(2).reduce((acc, cur) => {
+    const match = cur.match(reg)
+    if (match?.groups && whiteList.includes(match.groups.key)) {
+      const { key, value } = match.groups
+      acc.push({
+        origin: cur,
+        originArr: cur.split('='),
+        key,
+        value
+      })
+    }
+    return acc
+  }, [])
+  return argv
+}
+sliceExternalPublishArgv()
+
 async function publishPackage({ pkgDir, releaseTag, packageManager = 'npm' }) {
   const publicArgs = ['publish', '--access', 'public']
+  const sliceExternalPublishArgvs = sliceExternalPublishArgv()
+  sliceExternalPublishArgvs.forEach(item => {
+    publicArgs.push(...item.originArr)
+  })
   if (releaseTag) {
     publicArgs.push(`--tag`, releaseTag)
   }
