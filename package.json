@@ -5,10 +5,10 @@
   "description": "A monorepo starter based on vite",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode dev",
+    "build": "vite build --mode prod",
     "build:lib": "node scripts/build-lib.js",
-    "preview": "vite preview",
+    "preview": "vite preview --mode dev",
     "format": "npm run format:lint && npm run format:pretty",
     "format:lint": "eslint . --ext .js,.jsx,.vue,.cjs,.mjs --fix --config .eslintrc.cjs --no-eslintrc",
     "format:pretty": "prettier . --write",
