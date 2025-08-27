@@ -1,9 +1,9 @@
 import { defineConfig, mergeConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import useGlobalConfig from './config/vite.global.config'
+import useViteConfig from './config/useViteConfig'
 
 export default defineConfig(
-  mergeConfig(useGlobalConfig({ configType: 'multipage' }), {
+  mergeConfig(useViteConfig({ configType: 'singlepage' }), {
     plugins: [vue()]
   })
 )

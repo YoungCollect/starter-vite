@@ -1,4 +1,4 @@
-console.log('Client')
+console.log('Bar')
 console.log(import.meta.env)
 
 import { createApp } from 'vue'

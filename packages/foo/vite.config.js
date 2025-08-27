@@ -1,12 +1,12 @@
 import { resolve } from 'node:path'
 import { defineConfig, mergeConfig } from 'vite'
-import useGlobalConfig from '../../config/vite.global.config.js'
+import useViteConfig from '../../config/useViteConfig.js'
 import { resolveEntries } from '../../config/helper/resolve-entries'
 import resolvedAlias from './scripts/resolve-alias'
 
 export default defineConfig(
   mergeConfig(
-    useGlobalConfig({
+    useViteConfig({
       configType: 'lib',
       pkgName: 'foo',
       plugins: ['node-externals', 'node-shims-for-esm']
