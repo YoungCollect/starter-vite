@@ -19,6 +19,7 @@ export default async () => {
 		root: path.resolve(__dirname, `${pagesContext}/${pageName}`),
 		base: '/',
 		envDir: process.cwd(),
+		publicDir: path.resolve(__dirname, `${pagesContext}/${pageName}/public`),
 		build: {
 			outDir: path.resolve(__dirname, `${pagesOutput}/${pageName}`),
 			assetsInlineLimit: 4096, //小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求

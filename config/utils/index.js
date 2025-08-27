@@ -52,7 +52,6 @@ export const getEntryPage = async (pagesContext, pageName) => {
 	if (fs.existsSync(path.resolve(__dirname, `${pagesContext}/${pageName}/vite.config.js`))) {
 		subViteConfig = (await import(path.resolve(__dirname, `${pagesContext}/${pageName}/vite.config.js`))).default
 	}
-	console.log(subViteConfig)
   return {
 		input: {
 			[pageName]: path.resolve(__dirname, `${pagesContext}/${pageName}/index.html`)
