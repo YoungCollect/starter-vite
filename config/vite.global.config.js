@@ -2,6 +2,8 @@ import { resolve } from 'node:path'
 import nodeExternalsPlugin from './plugins/node-externals.js'
 import nodeShimsForEsmPlugin from './plugins/node-shims-for-esm.js'
 
+import multipageConfig from './vite.multipage.config.js'
+
 const pluginList = [
   {
     name: 'node-externals',
@@ -22,7 +24,8 @@ export default function useGlobalConfig({
     resolve: {
       alias: {
         config: resolve(__dirname, '../config'),
-        packages: resolve(__dirname, '../packages')
+        packages: resolve(__dirname, '../packages'),
+				'@': resolve(__dirname, './src')
       },
       extensions: [
         '.mjs',
@@ -58,6 +61,12 @@ export default function useGlobalConfig({
         }
       }
       break
+		case 'multipage':
+			config = {
+        ...config,
+        ...multipageConfig
+      }
+			break
     default:
       config = {}
       break
