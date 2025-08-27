@@ -5,7 +5,7 @@ import singlepageConfig from './awesome/vite.singlepage.config.js'
 import multipageConfig from './awesome/vite.multipage.config.js'
 import libConfig from './awesome/vite.lib.config.js'
 
-export default function useViteConfig({
+export default async function useViteConfig({
   configType = 'singlepage',
   pkgName = 'pino-cli',
   plugins = []
@@ -19,7 +19,7 @@ export default function useViteConfig({
       break
 		case 'multipage':
 			config = {
-        ...multipageConfig()
+        ...await multipageConfig()
       }
 			break
 		case 'lib':

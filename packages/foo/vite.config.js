@@ -4,9 +4,9 @@ import useViteConfig from '../../config/useViteConfig.js'
 import { resolveEntries } from '../../config/helper/resolve-entries'
 import resolvedAlias from './scripts/resolve-alias'
 
-export default defineConfig(
+export default async () => defineConfig(
   mergeConfig(
-    useViteConfig({
+    await useViteConfig({
       configType: 'lib',
       pkgName: 'foo',
       plugins: ['node-externals', 'node-shims-for-esm']

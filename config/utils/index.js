@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import path from 'node:path'
 import fs from 'node:fs'
 import chalk from 'chalk'
 
@@ -6,7 +6,7 @@ const log = (str) => console.log(str)
 
 // 动态读取 pages 目录下包含 index.html 的子目录
 export const getContextPages = (pagesContext) => {
-  const pagesPath = resolve(__dirname, pagesContext)
+  const pagesPath = path.resolve(__dirname, pagesContext)
   const pages = []
 
   try {
@@ -14,7 +14,7 @@ export const getContextPages = (pagesContext) => {
 
     for (const entry of entries) {
       if (entry.isDirectory()) {
-        const indexPath = resolve(pagesPath, entry.name, 'index.html')
+        const indexPath = path.resolve(pagesPath, entry.name, 'index.html')
         if (fs.existsSync(indexPath)) {
           pages.push({
             page: entry.name,
@@ -30,7 +30,7 @@ export const getContextPages = (pagesContext) => {
   return pages
 }
 
-export const getEntryPage = (pagesContext, pageName) => {
+export const getEntryPage = async (pagesContext, pageName) => {
 	const pages = getContextPages(pagesContext)
   if (!pageName) {
     log(
@@ -47,7 +47,16 @@ export const getEntryPage = (pagesContext, pageName) => {
     log(chalk.red(`Page '${pageName}' not found. Available pages: ${pages.map(p => p.page).join(', ')}`))
 		process.exit(1)
   }
+
+	let subViteConfig = {}
+	if (fs.existsSync(path.resolve(__dirname, `${pagesContext}/${pageName}/vite.config.js`))) {
+		subViteConfig = (await import(path.resolve(__dirname, `${pagesContext}/${pageName}/vite.config.js`))).default
+	}
+	console.log(subViteConfig)
   return {
-    [pageName]: resolve(__dirname, `${pagesContext}/${pageName}/index.html`)
-  }
+		input: {
+			[pageName]: path.resolve(__dirname, `${pagesContext}/${pageName}/index.html`)
+		},
+		subViteConfig
+	}
 }
