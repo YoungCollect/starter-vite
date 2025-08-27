@@ -2,7 +2,7 @@ import { resolve } from 'node:path'
 import fs from 'node:fs'
 import minimist from 'minimist'
 import { getEntryPage } from './utils/index.js'
-// import { pxtovw } from './config/plugin'
+// import { pxtovw } from './plugins/pxtovw'
 
 const pagesContext = resolve(__dirname, '../src/pages')
 const pagesOutput = resolve(__dirname, '../dist')
